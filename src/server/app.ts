@@ -19,7 +19,7 @@ export function createApp() {
 
     addRouter(app)
 
-    const port = process.env.PROT;
+    const port = process.env.PROT || 7777;
     app.listen(port, ()=> {
         console.log(`start notion-gateway service, the port ${port}`)
     })
