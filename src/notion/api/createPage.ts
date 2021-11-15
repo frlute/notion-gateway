@@ -5,7 +5,6 @@ interface parentOptions {
     database_id: string;
 } 
 
-
 interface createPageOptions {
     parent: parentOptions;
     properties: Record<string, any>;

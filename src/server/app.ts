@@ -6,8 +6,8 @@ import * as bodyParser from 'koa-bodyparser';
 import { queryTasks } from '../notion/board/queryTasks';
 import { queryTask } from '../notion/board/queryTask';
 import { createTask } from './handlers/createTask';
-import { updateTask } from '../notion/board/updateTask';
 import { HandlerResponse } from './handlers/interface'; 
+import { updateTask } from './handlers/updateTask';
 
 export function createApp() {
     const app = new Koa();
@@ -67,18 +67,7 @@ function addRouter(app: Koa) {
 
     router.put('/task/:taskID', async(ctx, next) => {
         const taskID = ctx.params.taskID;
-        const resp: HandlerResponse = {
-            code: 0,
-            results: undefined,
-        }
-        try {
-           const result = await updateTask(taskID)
-           resp.results = result;
-        } catch (e) {
-            resp.code = 500;
-            resp.message = e.message;
-        }
-
+        const resp = await updateTask(ctx, taskID);
         ctx.body = resp;
         await next();
     })

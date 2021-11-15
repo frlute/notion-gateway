@@ -27,7 +27,7 @@ export async function createTask(taskName: string) {
         }
     }
     // TODO 考虑是否任务去重
+    // TODO 未验证当前列是否匹配
     const result = await createPage(options)
-    console.log('-------create result', result)
     return convert.pageToTask(result);
 } 

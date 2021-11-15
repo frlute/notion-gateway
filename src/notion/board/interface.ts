@@ -1,7 +1,7 @@
 export enum TaskStatus {
     Unknown,
     Inboxes,
-    TadayTask,
+    TodayTask,
     InProgress,
     Completed,
 }

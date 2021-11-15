@@ -23,8 +23,6 @@ export async function queryTasks(): Promise<TaskTable[]> {
     // TODO 处理分页数据
     const tasks = response.results.map((page) => {
         return convert.pageToTask(page);
-    })
-    
-    console.log('------tasks', tasks)
+    })    
     return tasks;
 }
